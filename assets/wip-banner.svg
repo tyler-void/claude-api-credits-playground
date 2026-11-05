@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Under construction</title>
+  <desc id="d">A robot in a hard hat sweats over a chessboard while a pawn in a hard hat supervises. The playground is a work in progress and not available yet.</desc>
+  <defs>
+    <pattern id="tape" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="28" height="28" fill="#f5c518"/>
+      <rect width="14" height="28" fill="#1b1b1f"/>
+    </pattern>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#2c2840" stroke-width="1"/>
+    </pattern>
+    <clipPath id="card"><rect x="0" y="0" width="880" height="300" rx="22"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="880" height="300" fill="#17141f"/>
+    <rect width="880" height="300" fill="url(#grid)"/>
+
+    <!-- caution tape, scrolling -->
+    <g>
+      <rect x="-56" y="0" width="1000" height="22" fill="url(#tape)">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="28 0" dur="1.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-56" y="278" width="1000" height="22" fill="url(#tape)">
+        <animateTransform attributeName="transform" type="translate" from="28 0" to="0 0" dur="1.2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- chessboard -->
+    <g transform="translate(70 168)">
+      <g fill="#e9e1cf">
+        <rect x="0" y="0" width="22" height="22"/><rect x="44" y="0" width="22" height="22"/><rect x="88" y="0" width="22" height="22"/><rect x="132" y="0" width="22" height="22"/>
+        <rect x="22" y="22" width="22" height="22"/><rect x="66" y="22" width="22" height="22"/><rect x="110" y="22" width="22" height="22"/><rect x="154" y="22" width="22" height="22"/>
+        <rect x="0" y="44" width="22" height="22"/><rect x="44" y="44" width="22" height="22"/><rect x="88" y="44" width="22" height="22"/><rect x="132" y="44" width="22" height="22"/>
+      </g>
+      <g fill="#7a5c3e">
+        <rect x="22" y="0" width="22" height="22"/><rect x="66" y="0" width="22" height="22"/><rect x="110" y="0" width="22" height="22"/><rect x="154" y="0" width="22" height="22"/>
+        <rect x="0" y="22" width="22" height="22"/><rect x="44" y="22" width="22" height="22"/><rect x="88" y="22" width="22" height="22"/><rect x="132" y="22" width="22" height="22"/>
+        <rect x="22" y="44" width="22" height="22"/><rect x="66" y="44" width="22" height="22"/><rect x="110" y="44" width="22" height="22"/><rect x="154" y="44" width="22" height="22"/>
+      </g>
+      <rect x="0" y="0" width="176" height="66" fill="none" stroke="#3a3350" stroke-width="3"/>
+
+      <!-- supervising pawn in a hard hat -->
+      <g transform="translate(118 -46)">
+        <animateTransform attributeName="transform" type="translate" values="118 -46; 118 -52; 118 -46" dur="1.6s" repeatCount="indefinite"/>
+        <ellipse cx="14" cy="46" rx="16" ry="5" fill="#d8d2c4"/>
+        <path d="M2 44 Q14 20 26 44 Z" fill="#f3efe6"/>
+        <circle cx="14" cy="16" r="9" fill="#f3efe6"/>
+        <path d="M3 13 Q14 -2 25 13 Z" fill="#f5c518"/>
+        <rect x="1" y="12" width="26" height="3" rx="1.5" fill="#d9a800"/>
+        <circle cx="11" cy="17" r="1.3" fill="#1b1b1f"/><circle cx="17" cy="17" r="1.3" fill="#1b1b1f"/>
+        <path d="M10 21 Q14 19 18 21" stroke="#1b1b1f" stroke-width="1.3" fill="none"/>
+      </g>
+      <!-- toppled piece -->
+      <g transform="translate(40 30) rotate(-70)">
+        <rect x="-4" y="-18" width="8" height="18" rx="3" fill="#2b2b33"/>
+        <circle cx="0" cy="-20" r="5" fill="#2b2b33"/>
+      </g>
+    </g>
+
+    <!-- robot -->
+    <g transform="translate(270 70)">
+      <!-- antenna light -->
+      <line x1="45" y1="18" x2="45" y2="0" stroke="#9aa3b8" stroke-width="3"/>
+      <circle cx="45" cy="0" r="6" fill="#ff5d5d">
+        <animate attributeName="opacity" values="1;0.2;1" dur="0.9s" repeatCount="indefinite"/>
+      </circle>
+      <!-- hard hat -->
+      <path d="M12 34 Q45 4 78 34 Z" fill="#f5c518"/>
+      <rect x="6" y="32" width="78" height="7" rx="3.5" fill="#d9a800"/>
+      <!-- head -->
+      <rect x="14" y="38" width="62" height="46" rx="12" fill="#c7cede"/>
+      <rect x="22" y="47" width="46" height="26" rx="8" fill="#20202a"/>
+      <!-- blinking eyes -->
+      <ellipse cx="35" cy="59" rx="5" ry="5" fill="#7df9c8">
+        <animate attributeName="ry" values="5;5;0.6;5;5" keyTimes="0;0.8;0.85;0.9;1" dur="3.2s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="55" cy="59" rx="5" ry="5" fill="#7df9c8">
+        <animate attributeName="ry" values="5;5;0.6;5;5" keyTimes="0;0.8;0.85;0.9;1" dur="3.2s" repeatCount="indefinite"/>
+      </ellipse>
+      <!-- sweat drop -->
+      <path d="M80 44 q4 7 0 10 q-4 -3 0 -10 Z" fill="#7cc7ff">
+        <animate attributeName="opacity" values="0;1;1;0" dur="1.8s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0; 0 4; 0 14; 0 18" dur="1.8s" repeatCount="indefinite"/>
+      </path>
+      <!-- body -->
+      <rect x="18" y="88" width="54" height="56" rx="10" fill="#aeb6c9"/>
+      <rect x="28" y="98" width="34" height="20" rx="4" fill="#20202a"/>
+      <!-- progress bar on the chest that never finishes -->
+      <rect x="31" y="105" width="28" height="6" rx="3" fill="#3a3350"/>
+      <rect x="31" y="105" width="4" height="6" rx="3" fill="#7df9c8">
+        <animate attributeName="width" values="4;24;27;27.5;4" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <!-- arm with wrench, waving -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="-25 72 100; 15 72 100; -25 72 100" dur="1.4s" repeatCount="indefinite"/>
+        <rect x="72" y="96" width="34" height="9" rx="4.5" fill="#aeb6c9"/>
+        <path d="M104 92 l10 -6 a9 9 0 1 1 -2 14 l-8 -2 Z" fill="#9aa3b8"/>
+      </g>
+      <!-- other arm resting -->
+      <rect x="-6" y="104" width="26" height="9" rx="4.5" fill="#aeb6c9" transform="rotate(25 18 108)"/>
+      <!-- legs -->
+      <rect x="26" y="144" width="12" height="18" rx="4" fill="#9aa3b8"/>
+      <rect x="52" y="144" width="12" height="18" rx="4" fill="#9aa3b8"/>
+    </g>
+
+    <!-- text -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+      <text x="440" y="100" font-size="32" font-weight="700" fill="#f5c518">UNDER CONSTRUCTION</text>
+      <text x="440" y="136" font-size="16" fill="#e9e1cf">The models are still arguing about the rules.</text>
+      <text x="440" y="162" font-size="16" fill="#9aa3b8">Most experiments are not available yet.</text>
+      <text x="440" y="206" font-size="15" fill="#7df9c8">$ go run ./experiments/everything<tspan fill="#e9e1cf">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>▍</tspan></text>
+      <text x="440" y="232" font-size="15" fill="#ff8a8a">error: not implemented (yet)</text>
+    </g>
+
+    <!-- traffic cone -->
+    <g transform="translate(812 188)">
+      <path d="M20 0 L38 70 L2 70 Z" fill="#ff7a1a"/>
+      <path d="M14 24 L26 24 L29 36 L11 36 Z" fill="#f3efe6"/>
+      <path d="M8 48 L32 48 L35 58 L5 58 Z" fill="#f3efe6"/>
+      <rect x="-6" y="68" width="52" height="8" rx="3" fill="#cc5a0a"/>
+    </g>
+  </g>
+</svg>

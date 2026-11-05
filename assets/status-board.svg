@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330" role="img" aria-labelledby="t d">
+  <title id="t">Experiment status board</title>
+  <desc id="d">Departure-board style list of experiments. Key setup and the hello example are ready, the chess arena is warming up, and gomoku, the shotgun duel, poker and the leaderboard are not available yet.</desc>
+  <defs>
+    <clipPath id="card"><rect width="880" height="330" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#card)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect width="880" height="330" fill="#101418"/>
+    <rect x="0" y="0" width="880" height="56" fill="#1b2229"/>
+    <text x="32" y="37" font-size="20" font-weight="700" fill="#f5c518">DEPARTURES · EXPERIMENTS</text>
+    <text x="848" y="37" font-size="15" fill="#9aa3b8" text-anchor="end">all times approximate</text>
+
+    <g font-size="17">
+      <text x="32" y="92" fill="#9aa3b8">EXPERIMENT</text>
+      <text x="470" y="92" fill="#9aa3b8">GATE</text>
+      <text x="700" y="92" fill="#9aa3b8">STATUS</text>
+      <line x1="32" y1="104" x2="848" y2="104" stroke="#2b343e" stroke-width="2"/>
+
+      <!-- ready -->
+      <text x="32" y="138" fill="#e9e1cf">Key setup + hello example</text>
+      <text x="470" y="138" fill="#e9e1cf">A0</text>
+      <circle cx="708" cy="132" r="7" fill="#3ddc84"/>
+      <text x="724" y="138" fill="#3ddc84">BOARDING</text>
+
+      <!-- partial -->
+      <text x="32" y="174" fill="#e9e1cf">Chess arena (Haiku vs bot)</text>
+      <text x="470" y="174" fill="#e9e1cf">C6/10</text>
+      <circle cx="708" cy="168" r="7" fill="#f5c518">
+        <animate attributeName="opacity" values="1;0.25;1" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="724" y="174" fill="#f5c518">DELAYED</text>
+
+      <!-- not yet -->
+      <text x="32" y="210" fill="#7d8794">Gomoku (caro rules)</text>
+      <text x="470" y="210" fill="#7d8794">G2</text>
+      <circle cx="708" cy="204" r="7" fill="#ff5d5d"/>
+      <text x="724" y="210" fill="#ff8a8a">NOT YET</text>
+
+      <text x="32" y="246" fill="#7d8794">Shotgun duel</text>
+      <text x="470" y="246" fill="#7d8794">S3</text>
+      <circle cx="708" cy="240" r="7" fill="#ff5d5d"/>
+      <text x="724" y="246" fill="#ff8a8a">NOT YET</text>
+
+      <text x="32" y="282" fill="#7d8794">Heads-up poker · leaderboard</text>
+      <text x="470" y="282" fill="#7d8794">P4 · L5</text>
+      <circle cx="708" cy="276" r="7" fill="#ff5d5d"/>
+      <text x="724" y="282" fill="#ff8a8a">NOT YET</text>
+    </g>
+
+    <!-- scrolling ticker -->
+    <rect x="0" y="300" width="880" height="30" fill="#1b2229"/>
+    <g clip-path="url(#card)">
+      <text y="321" font-size="14" fill="#7df9c8">
+        <tspan>+++ Haiku 5.5 checkmates the random bot for under a cent a move +++ Opus is still stuck in traffic +++ poker players asked to keep their bluffs under 140 characters +++ please do not feed the robots tokens +++</tspan>
+        <animate attributeName="x" from="880" to="-1700" dur="26s" repeatCount="indefinite"/>
+      </text>
+    </g>
+  </g>
+</svg>
