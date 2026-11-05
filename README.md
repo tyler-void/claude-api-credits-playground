@@ -12,7 +12,7 @@ Everything here uses the **official route**: an API key created in the Claude Co
 
 | Path | What it is |
 |---|---|
-| [`docs/local-setup.md`](docs/local-setup.md) | Step by step: install, create the key, store it, make the first paid call, troubleshoot |
+| [`docs/local-setup.md`](docs/local-setup.md) | Step by step for macOS, Linux and Windows: install, create the key, store it, make the first paid call, troubleshoot |
 | [`docs/setup-keys.md`](docs/setup-keys.md) | Create the key, cap its spend, keep it out of your shell history and logs |
 | [`docs/discoveries.md`](docs/discoveries.md) | API behaviour, pricing and SDK gotchas learned the hard way, with measured numbers |
 | [`PLAN.md`](PLAN.md) | The experiments, in order, each with a budget and a gate |
@@ -21,6 +21,7 @@ Everything here uses the **official route**: an API key created in the Claude Co
 ## Quick start
 
 ```bash
+# macOS / Linux. Windows (PowerShell) steps: docs/local-setup.md
 # 1. Put the key in a private file (full steps: docs/local-setup.md)
 mkdir -p ~/.config/arena && install -m 600 /dev/null ~/.config/arena/key
 $EDITOR ~/.config/arena/key
