@@ -10,24 +10,50 @@ Every key you add (a second $200 key, say) should get its own workspace and spen
 
 ## 2. Store it in a file, not your shell
 
+macOS / Linux:
+
 ```bash
 mkdir -p ~/.config/arena
 install -m 600 /dev/null ~/.config/arena/key   # owner-only from the first byte
-$EDITOR ~/.config/arena/key                     # paste, save
+${EDITOR:-nano} ~/.config/arena/key            # paste, save
 ```
 
-Don't `export` it in `~/.zshrc`, and don't paste it into an AI chat or a terminal command; both end up in history or transcripts.
+Windows (PowerShell):
+
+```powershell
+$f = "$HOME\.config\arena\key"
+New-Item -ItemType File -Force $f | Out-Null
+icacls $f /inheritance:r /grant:r "${env:USERNAME}:(F)" | Out-Null   # owner-only before pasting
+notepad $f                                                          # paste, save
+```
+
+A second key goes in its own file next to the first, for example `~/.config/arena/key2`.
+
+Don't `export` it in `~/.zshrc`, set it in your PowerShell `$PROFILE` or Windows environment settings, and don't paste it into an AI chat or a terminal command; all of those end up in history, transcripts or every process you start.
 
 ## 3. Pass it only to the program that needs it
 
+macOS / Linux:
+
 ```bash
 ARENA_ANTHROPIC_API_KEY="$(cat ~/.config/arena/key)" go run ./your/program
+```
+
+Windows (PowerShell):
+
+```powershell
+try {
+  $env:ARENA_ANTHROPIC_API_KEY = (Get-Content -Raw "$HOME\.config\arena\key").Trim()
+  go run ./your/program
+} finally { Remove-Item Env:ARENA_ANTHROPIC_API_KEY -ErrorAction SilentlyContinue }
 ```
 
 Use a **dedicated variable name** (`ARENA_ANTHROPIC_API_KEY`), not `ANTHROPIC_API_KEY`. A dedicated name means:
 
 - other tools on your machine that read `ANTHROPIC_API_KEY` never pick up the experiments key by accident;
 - the experiments program can't silently fall back to some other credential.
+
+Full walkthrough, checks and troubleshooting for each OS: [`local-setup.md`](local-setup.md).
 
 ## 4. Make the SDK use only that key
 
@@ -50,4 +76,4 @@ client := anthropic.NewClient(
 
 - Don't put the key in structs you log or serialize.
 - Clear the local variable after building the client.
-- Before committing, grep your output directories for `sk-ant`.
+- Before committing, search your output directories for `sk-ant` (`grep -r sk-ant arena-data/`, or `Select-String -Path arena-data\* -Pattern sk-ant` on Windows).
