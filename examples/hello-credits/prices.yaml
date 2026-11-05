@@ -1,0 +1,6 @@
+# USD per million tokens. Check the official pricing page; these are November 2026 values.
+# cache_write is the 5-minute TTL rate (1.25x input). Haiku 5.5 costs 5x above 100K prompt tokens.
+claude-haiku-5-5:  {input: 0.10, output: 0.50, cache_read: 0.01, cache_write: 0.125}
+claude-sonnet-5-5: {input: 2.00, output: 10.00, cache_read: 0.10, cache_write: 2.50}
+claude-opus-5-5:   {input: 4.00, output: 20.00, cache_read: 0.20, cache_write: 5.00}
+claude-fable-5-1:  {input: 10.00, output: 50.00, cache_read: 0.25, cache_write: 12.50}
