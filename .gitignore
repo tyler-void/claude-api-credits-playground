@@ -1,0 +1,5 @@
+# Secrets and run output
+.env
+.env.*
+*.key
+arena-data/
