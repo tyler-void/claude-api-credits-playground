@@ -59,3 +59,17 @@ Takeaways:
 - **`go run` binaries live in `~/.cache/go-build/...`**, not `/tmp/go-build`, so a `pgrep` for the temp path misses them. Find the child of the `go run` process instead.
 - **`pgrep -f <pattern>` inside a shell command can match that shell itself.** Pick the right PID before sending signals.
 - **Poll the game server; don't trust your local copy.** Keep a local board only for display (SAN history) and check it against the server's position after every move.
+
+## Coding-agent runs (measured Nov 2026, opus-4-8)
+
+- A one-file tool-use loop (one `bash` tool) is enough to make the key act as a coding agent. See
+  `examples/coding-agent/` and `docs/coding-agent.md`.
+- Cost is driven by **turns**, not calls: the whole transcript is re-sent each turn. A trivial 2-turn run was $0.01;
+  heavy 58–89-turn agentic sessions on a large repo cost **$16–$35 each**. Budget per session and cap it.
+- Prompt caching (`cache_control: ephemeral` on the fixed brief + header `anthropic-beta: prompt-caching-2024-07-31`)
+  bills the brief at cache-read (0.5 /Mtok) after turn 1 instead of input (5 /Mtok). Worth it once transcripts grow.
+- Credit exhausted mid-run → `HTTP 400 "Your credit balance is too low to access the Anthropic API."` (loop exits,
+  disk work survives). Revoked/expired key → `HTTP 401 invalid x-api-key` (don't retry).
+- opus-4-8 rejects `thinking.type: enabled`; it wants `thinking.type: adaptive` + `output_config.effort`. Easiest:
+  omit the thinking block entirely.
+- A read-only "second opinion" (brief + spec + code, one call, no tools) was ~$0.15 and a useful cross-check.

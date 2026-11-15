@@ -16,6 +16,7 @@ Everything here uses the **official route**: an API key created in the Claude Co
 | [`docs/setup-keys.md`](docs/setup-keys.md) | Create the key, cap its spend, keep it out of your shell history and logs |
 | [`docs/discoveries.md`](docs/discoveries.md) | API behaviour, pricing and SDK gotchas learned the hard way, with measured numbers |
 | [`PLAN.md`](PLAN.md) | The experiments, in order, each with a budget and a gate |
+| [`examples/coding-agent`](examples/coding-agent) | A ~110-line tool-using coding agent (one `bash` tool) that bills the API key; see [`docs/coding-agent.md`](docs/coding-agent.md) |
 | [`examples/hello-credits`](examples/hello-credits) | One Messages API call in Go that reads its key from a dedicated variable and prints what the call cost |
 
 ## Quick start
